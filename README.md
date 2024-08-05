@@ -18,4 +18,4 @@ This is my portfolio for web development in 2024. I designed and built everythin
 ### Articles
 
 - How to Install React – A Step-by-Step Guide [freecodecamp](https://www.freecodecamp.org/news/how-to-install-react-a-step-by-step-guide/)
--
+- [GSAP](https://gsap.com/)
