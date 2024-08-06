@@ -1,3 +1,5 @@
-import apple from "/assets/images/apple.svg";
+import logo from "/assets/images/logo.svg";
+import bannerMp4 from "/assets/videos/test.mp4";
 
-export const appleImg = apple;
+export const logoImg = logo;
+export const bannerVideo = bannerMp4;
