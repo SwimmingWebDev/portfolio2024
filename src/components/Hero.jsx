@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 // icons
 import { FaArrowRight } from "react-icons/fa6";
@@ -47,18 +47,18 @@ const Hero = () => {
         "-=1"
       );
     // text animation
-    gsap.set("#hero-title", { opacity: 0 });
-    gsap.to("#hero-title", { opacity: 1, stagger: 0.1, delay: 0.5 });
-
-    gsap.set(".hero-title-hello", { opacity: 0, x: -115 });
+    gsap.set(".hero-title-hello", { opacity: 0, y: 20 });
     gsap.to(".hero-title-hello", {
       opacity: 1,
-      x: 0,
-      stagger: 0.05,
+      y: 0,
+      stagger: 0.08,
       delay: 0.1,
       duration: 0.3,
-      ease: "elastic.inOut",
+      ease: "power1.inout",
     });
+
+    gsap.set("#hero-title", { opacity: 0 });
+    gsap.to("#hero-title", { opacity: 1, stagger: 0.1, delay: 0.6 });
   }, []);
 
   return (
@@ -70,9 +70,14 @@ const Hero = () => {
       </div>
       <div className="banner">
         <p>
-          <span className="hero-title-hello">Hello</span>
-          <span id="hero-title"> I'm</span> Yang - a passionate designer &
-          developer based in Vancouver, Canada
+          <span className="hero-title-hello">H</span>
+          <span className="hero-title-hello">e</span>
+          <span className="hero-title-hello">l</span>
+          <span className="hero-title-hello">l</span>
+          <span className="hero-title-hello">o</span>
+          <span id="hero-title"> I'm</span>
+          <span id="hero-title"> Yang</span> - a passionate designer & developer
+          based in Vancouver, Canada
         </p>
         <a href="#work">
           <button
