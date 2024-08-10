@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { FaArrowRight } from "react-icons/fa6";
 
 const Inspirations = () => {
@@ -9,10 +11,12 @@ const Inspirations = () => {
         <p>
           Explore a collection of ideas and projects that spark my creativity
         </p>
-        <a href="#inspirations" className="btn">
-          View All
-          <FaArrowRight />
-        </a>
+        <Link to="/dashboard">
+          <div className="btn-primary">
+            View All
+            <FaArrowRight />
+          </div>
+        </Link>
       </div>
     </div>
   );
