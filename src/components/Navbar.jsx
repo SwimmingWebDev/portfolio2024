@@ -8,8 +8,10 @@ const Navbar = () => {
       <RiHomeLine />
       <nav className="main-nav">
         <div className="nav-items">
-          {["Work", "About", "Contact"].map((nav) => (
-            <div className="nav-item transition">{nav}</div>
+          {["Work", "About", "Contact"].map((nav, index) => (
+            <div className="nav-item transition" key={index}>
+              {nav}
+            </div>
           ))}
           <SlMenu className="icon-menu" />
         </div>

@@ -1,6 +1,8 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { FaArrowCircleRight } from "react-icons/fa";
+import WorkCarousel from "./WorkCarousel";
+
 const Work = () => {
   useGSAP(() => {
     gsap.set(".work-title", { opacity: 0, y: 10 });
@@ -41,6 +43,7 @@ const Work = () => {
           </span>
         </p>
       </div>
+      <WorkCarousel />
     </section>
   );
 };

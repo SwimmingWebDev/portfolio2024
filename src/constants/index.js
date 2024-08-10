@@ -1,8 +1,8 @@
-import { appleImg } from "../utils";
+import { logoImg, bannerVideo, work01Demo } from "../utils";
 
-export const navLists = ["Store", "Mac", "iPhone", "Support"];
+export const navLists = ["Home", "Work", "About", "Contact"];
 
-export const highlightSlides = [
+export const workslides = [
   {
     id: 1,
     textLists: [
@@ -10,7 +10,27 @@ export const highlightSlides = [
       "Game-changing chip",
       "Groundbreaking performance",
     ],
-    video: apple,
+    video: work01Demo,
+    videoDuration: 5,
+  },
+  {
+    id: 2,
+    textLists: [
+      "Enter A17 Pro",
+      "Game-changing chip",
+      "Groundbreaking performance",
+    ],
+    video: work01Demo,
+    videoDuration: 5,
+  },
+  {
+    id: 3,
+    textLists: [
+      "Enter A17 Pro",
+      "Game-changing chip",
+      "Groundbreaking performance",
+    ],
+    video: work01Demo,
     videoDuration: 5,
   },
 ];
@@ -20,7 +40,7 @@ export const models = [
     id: 1,
     title: "iPhone 15 Pro",
     color: ["#555555", "#ffffff"],
-    img: apple,
+    img: logoImg,
   },
 ];
 
