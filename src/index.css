@@ -40,7 +40,6 @@ h1 {
 }
 
 body {
-  padding: 10px 20px;
   width: 100vw;
   overflow-x: hidden;
   color: var(--text-color);
@@ -58,8 +57,33 @@ ul {
 }
 
 section {
+  margin-left: 1rem;
+  margin-right: 1.6rem;
   margin-bottom: 6rem;
 }
+
+/* scroll bar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* end of scroll bar */
 
 ::selection {
   color: var(--bg-color);
@@ -85,6 +109,7 @@ section {
   background-color: transparent;
   font-weight: 500;
   cursor: pointer;
+  color: var(--text-color);
 }
 
 .btn-secondary {
@@ -93,6 +118,47 @@ section {
 
 .icon-home {
   font-size: 1.2rem;
+}
+
+/* contact form */
+.contact {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-top: 3px solid var(--color-primary);
+}
+
+form {
+  max-width: 600px;
+  width: 100%;
+  padding: 25px 30px;
+}
+
+.input-box {
+  margin-top: 1rem;
+}
+
+.input-box .field {
+  width: 100%;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--text-color);
+  outline: none;
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  padding: 7px;
+}
+label {
+  font-size: small;
+  color: var(--color-light);
+}
+.input-box .field-msg {
+  margin-top: 0.6em;
+  height: 7rem;
+  border: 2px solid var(--text-color);
+  resize: none;
 }
 
 /* header & nav */
@@ -140,6 +206,8 @@ section {
     display: block;
   }
 }
+
+/* end of header & nav */
 
 /* section:hero */
 .hero-container {
