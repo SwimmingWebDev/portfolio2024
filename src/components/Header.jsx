@@ -2,13 +2,13 @@ import React from "react";
 import { RiHomeLine } from "react-icons/ri";
 import { SlMenu } from "react-icons/sl";
 
-const Navbar = () => {
+const Header = () => {
   return (
     <header className="main-header">
       <RiHomeLine />
       <nav className="main-nav">
         <div className="nav-items">
-          {["Work", "About", "Contact"].map((nav, index) => (
+          {["Work", "About", "Inspirations", "Contact"].map((nav, index) => (
             <div className="nav-item transition" key={index}>
               {nav}
             </div>
@@ -20,4 +20,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

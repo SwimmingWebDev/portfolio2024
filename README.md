@@ -13,7 +13,9 @@ This is my portfolio for web development in 2024. I designed and built everythin
 
 ### Videos
 
-- https://youtu.be/kRQbRAJ4-Fs?si=4xL6sY3F5jl1MgSK
+-GSAP https://youtu.be/kRQbRAJ4-Fs?si=4xL6sY3F5jl1MgSK
+
+-CRUD https://youtu.be/e_lJYRaMo60?si=ArTeDe4SHFpAlxYb
 
 ### Articles
 
