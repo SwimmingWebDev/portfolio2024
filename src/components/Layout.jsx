@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 
 import Header from "./Header";
-import Contact from "./Contact";
+import Footer from "./Footer";
 
 const Layout = () => {
   return (
@@ -11,7 +11,7 @@ const Layout = () => {
       <main className="container">
         <Outlet />
       </main>
-      <Contact />
+      <Footer />
     </>
   );
 };

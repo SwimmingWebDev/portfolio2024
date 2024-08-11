@@ -10,6 +10,8 @@ const Contact = () => {
     message: "",
   });
 
+  const [showMessage, setShowMessage] = useState(false);
+
   const onChange = (e) => {
     setFormData({
       ...formData,
@@ -38,13 +40,23 @@ const Contact = () => {
     if (res.success) {
       setMessage("Message successfully sent!");
       setFormData({ name: "", email: "", message: "" });
+      setShowMessage(true);
+
+      setTimeout(() => {
+        setShowMessage(false);
+      }, 2000);
     } else {
       setMessage("Failed to send message.");
+      setShowMessage(true);
+
+      setTimeout(() => {
+        setShowMessage(false);
+      }, 2000);
     }
   };
 
   return (
-    <footer>
+    <>
       <section className="contact">
         <form onSubmit={onSubmit}>
           <h2>Send me a message!</h2>
@@ -90,11 +102,11 @@ const Contact = () => {
             <button type="submit" className="btn-primary">
               Send Message
             </button>
-            {message && <span className="contact-results">{message}</span>}
+            {showMessage && <span className="message fade-out">{message}</span>}
           </div>
         </form>
       </section>
-    </footer>
+    </>
   );
 };
 
