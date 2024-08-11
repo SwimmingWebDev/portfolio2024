@@ -25,7 +25,7 @@ const Work = () => {
   }, []);
 
   return (
-    <section id="work" className="section-work">
+    <section id="work" className="work-container">
       <div>
         <div className="work-header">
           <h1 className="work-title">My Work</h1>

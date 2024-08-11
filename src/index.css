@@ -18,8 +18,8 @@
   --font-weight-regular: 400;
   --font-weight-bold: 700;
 
-  --container-width-lg: 84%;
-  --container-width-md: 92%;
+  --container-width-lg: 95%;
+  --container-width-md: 80%;
   --from-width: 50%;
 }
 
@@ -57,7 +57,6 @@ ul {
 }
 
 section {
-  place-items: center;
   margin: 2rem 0;
 }
 
@@ -87,10 +86,6 @@ section {
 ::selection {
   color: var(--bg-color);
   background: var(--color-light);
-}
-
-.container {
-  padding: 20px;
 }
 
 .transition {
@@ -128,6 +123,10 @@ section {
 form {
   max-width: 600px;
   width: 100%;
+}
+
+form h2 {
+  margin-bottom: 0.5rem;
 }
 
 .input-box {
@@ -237,11 +236,12 @@ label {
 
 /* section:hero */
 .hero-container {
-  width: 100%;
+  width: var(--container-width-md);
   display: flex;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  padding: 1rem;
+  margin-inline: auto;
 }
 
 .video-container video {
@@ -314,15 +314,17 @@ label {
 
 /* mobile */
 @media only screen and (max-width: 768px) {
-  .banner {
-    height: 50vh;
-    padding: 0;
+  .hero-container {
+    width: var(--container-width-lg);
   }
 }
 
 /* section:work */
-.section-work {
+.work-container {
   overflow: hidden;
+  width: var(--container-width-md);
+  padding: 1rem;
+  margin-inline: auto;
 }
 
 .work-header {
@@ -373,6 +375,10 @@ label {
 
 /* mobile */
 @media only screen and (max-width: 768px) {
+  .work-container {
+    width: var(--container-width-lg);
+  }
+
   .header-work {
     justify-content: space-between;
   }
@@ -385,14 +391,156 @@ label {
     height: 15em;
   }
 }
+/* error page */
+.error-message {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.error-message p {
+  margin-bottom: 1rem;
+}
+
+/* Inspirations */
+.inspirations-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: var(--container-width-md);
+  padding: 1rem;
+  margin-inline: auto;
+}
+
+.inspirations-subheading {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.posts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow: hidden;
+  gap: 1rem;
+}
+
+.post-box {
+  border: 1px solid var(--color-secondary);
+  padding: 1.1rem;
+  border-radius: 0.7rem;
+}
+
+.post-box img {
+  height: 10rem;
+  overflow: hidden;
+  border-radius: 0.7rem;
+}
+
+.post-content {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+.post-content p {
+  margin-top: 0.5rem;
+  font-size: smaller;
+}
+
+.post-footer {
+  display: flex;
+  font-size: small;
+  justify-content: space-between;
+
+  align-items: flex-end;
+  margin-top: 1rem;
+  font-family: var(--font-primary);
+}
+
+.btn-post-category {
+  color: var(--color-tertiary);
+  font-family: var(--font-primary);
+}
+
+/* mobile */
+@media only screen and (max-width: 768px) {
+  .inspirations-container {
+    width: var(--container-width-lg);
+  }
+
+  .posts-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inspirations-subheading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* about-container */
+.about-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  margin-inline: auto;
+  width: var(--container-width-md);
+  padding: 1rem;
+}
+
+/* mobile */
+@media only screen and (max-width: 768px) {
+  .about-container {
+    width: var(--container-width-lg);
+  }
+}
+
+/* Inspiration-item */
+.post-detail-container {
+  width: var(--container-width-md);
+  margin-inline: auto;
+  padding: 2rem;
+}
+
+.post-detail-contents {
+  margin-top: 2rem;
+}
+
+.post-detail-buttons {
+  display: flex;
+  gap: 6px;
+  padding: 1rem 0;
+}
+
+.post-detail-thumbnail img {
+  max-height: 20rem;
+  height: fit-content;
+  overflow: hidden;
+  border-radius: 0.3rem;
+  margin-bottom: 2rem;
+}
+.post-detail-contents p {
+  margin-bottom: 0.8rem;
+}
+
+/* mobile */
+@media only screen and (max-width: 768px) {
+  .post-detail-container {
+    width: var(--container-width-lg);
+  }
+}
 
 /* footer */
 .footer-container {
+  width: var(--container-width-md);
   justify-content: center;
   padding: 1rem;
   border-top: 3px solid var(--color-primary);
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-inline: auto;
 }
 
 .footer-message {
@@ -412,6 +560,7 @@ label {
 @media only screen and (max-width: 768px) {
   .footer-container {
     display: flex;
+    width: var(--container-width-lg);
     gap: 3rem;
     flex-direction: column;
   }
