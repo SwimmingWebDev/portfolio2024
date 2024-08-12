@@ -4,12 +4,19 @@ This is my portfolio for web development in 2024. I designed and built everythin
 
 ### Languages, Frameworks, and Tools
 
-- vscode
-- javascript
-- VITE
-- ChatGPT
-- Gsap
-- Three.js
+- FrontEnd
+
+  - javascript
+  - VITE
+  - GSAP
+  - Three.js
+
+- Backend
+
+  - NodeJS
+  - Express
+  - MongoDB
+  - PostMan
 
 ### Videos
 
