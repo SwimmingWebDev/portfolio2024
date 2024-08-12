@@ -120,7 +120,8 @@ section {
   align-items: center;
 }
 
-form {
+form,
+.register-container > form {
   max-width: 600px;
   width: 100%;
 }
@@ -463,6 +464,33 @@ label {
   font-family: var(--font-primary);
 }
 
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.post-icons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.inspirations-category-items {
+  display: flex;
+  font-family: var(--font-primary);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.inspirations-category-items li {
+  padding: 0.5rem 1rem;
+  color: var(--color-tertiary);
+  border: 2px solid var(--color-tertiary);
+  border-radius: 2rem;
+  font-size: smaller;
+}
 /* mobile */
 @media only screen and (max-width: 768px) {
   .inspirations-container {
@@ -496,6 +524,7 @@ label {
     width: var(--container-width-lg);
   }
 }
+/* end of about-container */
 
 /* Inspiration-item */
 .post-detail-container {
@@ -531,6 +560,43 @@ label {
     width: var(--container-width-lg);
   }
 }
+
+/* register */
+.register-container {
+  width: var(--container-width-md);
+  margin-inline: auto;
+  padding: 2rem;
+}
+
+.register-container-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.register-container-header small {
+  font-family: var(--font-primary);
+  color: var(--color-tertiary);
+}
+
+.link-to-login {
+  font-family: var(--font-primary);
+  margin-top: 0.5rem;
+  font-size: smaller;
+}
+
+.error-message {
+  color: var(--bg-color);
+  font-family: var(--font-primary);
+  padding: 0.3rem 0.7rem;
+  margin-top: 1rem;
+  font-weight: var(--font-weight-bold);
+  width: fit-content;
+  border-radius: 0.2rem;
+  background-color: var(--color-primary);
+}
+
+/* end of register */
 
 /* footer */
 .footer-container {
