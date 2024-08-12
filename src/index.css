@@ -526,6 +526,28 @@ label {
 }
 /* end of about-container */
 
+/* create-post-container */
+.createPost-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  margin-inline: auto;
+  width: var(--container-width-md);
+  padding: 1rem;
+}
+
+.createPost-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ReactQuill */
+.ql-editor {
+  overflow-y: scroll;
+  height: 15rem;
+}
+
 /* Inspiration-item */
 .post-detail-container {
   width: var(--container-width-md);

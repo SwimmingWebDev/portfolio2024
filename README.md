@@ -19,6 +19,10 @@ This is my portfolio for web development in 2024. I designed and built everythin
 
 - [Contact Form](https://youtu.be/94_6JPDi13g?si=StKpavR0EkWnqQcg)
 
+### Webpack
+
+- [ReactQuill](https://www.npmjs.com/package/react-quill)
+
 ### Articles
 
 - How to Install React – A Step-by-Step Guide [freecodecamp](https://www.freecodecamp.org/news/how-to-install-react-a-step-by-step-guide/)
