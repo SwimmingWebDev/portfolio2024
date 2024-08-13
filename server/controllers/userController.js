@@ -72,8 +72,19 @@ const loginUser = async (req, res, next) => {
   }
 };
 
-const getUser = (req, res, next) => {
-  res.json("Get User");
+//test
+const getUser = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    //show information except password
+    const user = await User.findById(id).select("-password");
+    if (!user) {
+      return next(new HttpError("User Not Found", 404));
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    return next(new HttpError(error));
+  }
 };
 
 module.exports = { registerUser, loginUser, getUser };

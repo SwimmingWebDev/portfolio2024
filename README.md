@@ -19,6 +19,7 @@ This is my portfolio for web development in 2024. I designed and built everythin
   - PostMan
   - bcryptjs
   - JWT(jsonwebtoken)
+  - uuid
 
 ### Videos
 
