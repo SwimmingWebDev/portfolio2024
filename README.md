@@ -18,6 +18,7 @@ This is my portfolio for web development in 2024. I designed and built everythin
   - MongoDB
   - PostMan
   - bcryptjs
+  - JWT(jsonwebtoken)
 
 ### Videos
 
