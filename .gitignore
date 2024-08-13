@@ -10,6 +10,8 @@ lerna-debug.log*
 client/node_modules
 client/public/assets/videos/
 
+server/node_modules
+
 dist
 dist-ssr
 *.local
