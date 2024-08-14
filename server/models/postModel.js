@@ -5,7 +5,7 @@ const postSchema = new Schema(
     title: { type: String, required: true },
     category: {
       type: String,
-      enum: ["Web Development", "UX/UI Design", "Technology"],
+      enum: ["Web Development", "Design", "Technology"],
       required: true,
     },
     description: { type: String, required: true },

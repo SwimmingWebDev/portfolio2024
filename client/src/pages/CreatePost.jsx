@@ -51,7 +51,7 @@ const CreatePost = () => {
     "image",
   ];
 
-  const categories = ["Web development", "UX/UI Design", "Technology"];
+  const categories = ["Web development", "Design", "Technology"];
 
   return (
     <section className="createPost-container">

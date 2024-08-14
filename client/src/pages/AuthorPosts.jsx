@@ -55,9 +55,15 @@ const AuthorPosts = () => {
       </div>
       <div className="inspirations-category">
         <ul className="inspirations-category-items">
-          <li>Web development</li>
-          <li>UX/UI Design</li>
-          <li>Technology</li>
+          <Link to={`/posts/categories/Web%20Development`}>
+            <li>Web development</li>
+          </Link>
+          <Link to={`/posts/categories/Design`}>
+            <li>Design</li>
+          </Link>
+          <Link to={`/posts/categories/Technology`}>
+            <li>Technology</li>
+          </Link>
         </ul>
       </div>
 

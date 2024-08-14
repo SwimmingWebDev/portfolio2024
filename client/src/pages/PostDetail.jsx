@@ -28,7 +28,7 @@ const PostDetail = () => {
       }
     };
     getPost();
-  }, []);
+  }, [id]);
 
   return (
     <section className="post-detail-container">
@@ -37,7 +37,7 @@ const PostDetail = () => {
         <div className="post-detail-contents">
           <div className="post-detail-header">
             <Link
-              to={`/posts/categories/UX/UI Design`}
+              to={`/posts/categories/${post.category}`}
               className="btn-post-category "
             >
               <small>{post.category}</small>
