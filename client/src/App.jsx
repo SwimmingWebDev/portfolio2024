@@ -15,11 +15,16 @@ import DeletePost from "./pages/DeletePost";
 import Logout from "./pages/Logout";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import UserProvider from "./context/userProvider";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <UserProvider>
+        <Layout />
+      </UserProvider>
+    ),
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
