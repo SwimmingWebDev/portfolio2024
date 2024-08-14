@@ -8,6 +8,7 @@ const PostItem = ({
   title,
   description,
   authorID,
+  createdAt,
 }) => {
   const shortDesc =
     description.length > 140 ? description.substr(0, 140) + "..." : description;
@@ -16,7 +17,10 @@ const PostItem = ({
   return (
     <article className="post-box">
       <div className="post-thumbnail">
-        <img src={thumbnail} alt={title} />
+        <img
+          src={`${import.meta.env.VITE_ASSETS_URL}/uploads/${thumbnail}`}
+          alt={title}
+        />
       </div>
       <div className="post-content">
         <Link to={`/posts/${postID}`}>
@@ -28,7 +32,7 @@ const PostItem = ({
             {/* <span>Author ID:</span>
             {authorID} */}
 
-            <small>10 minutes ago</small>
+            <small>{createdAt}</small>
           </div>
 
           <Link

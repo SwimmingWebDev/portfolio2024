@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import PostItem from "../components/PostItem";
 import { RiKey2Line } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
@@ -6,13 +6,30 @@ import { HiLogin } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 import { userContext } from "../context/userProvider.jsx";
+import axios from "axios";
 
 //temp
 import { DUMMY } from "../constants";
 
 const AuthorPosts = () => {
-  const [posts, setPosts] = useState(DUMMY);
+  const [posts, setPosts] = useState([]);
+  const [author, setAuthor] = useState({});
+
   const { currentUser } = useContext(userContext);
+
+  useEffect(() => {
+    const getUserPosts = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/posts/users/${currentUser?.id}`
+        );
+        setPosts(response?.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getUserPosts();
+  }, []);
 
   return (
     <section className="dashboard post-detail-container">
@@ -46,17 +63,19 @@ const AuthorPosts = () => {
 
       {posts.length > 0 ? (
         <div className="posts-container">
-          {posts.map(({ id, thumbnail, category, title, desc, authorID }) => (
-            <PostItem
-              key={id}
-              postID={id}
-              thumbnail={thumbnail}
-              category={category}
-              title={title}
-              description={desc}
-              authorID={authorID}
-            />
-          ))}
+          {posts.map(
+            ({ _id, thumbnail, category, title, description, author }) => (
+              <PostItem
+                key={_id}
+                postID={_id}
+                thumbnail={thumbnail}
+                category={category}
+                title={title}
+                description={description}
+                authorID={author}
+              />
+            )
+          )}
         </div>
       ) : (
         <h2>You have no posts yet.</h2>

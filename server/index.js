@@ -2,7 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { connect } = require("mongoose");
+
 const fileUpload = require("express-fileupload");
+const path = require("path");
 
 const userRoutes = require("./routes/userRoutes");
 const postRoutes = require("./routes/postRoutes");
@@ -24,6 +26,9 @@ app.use(
     createParentPath: true,
   })
 );
+
+// Serve static files from 'public' directory
+app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import PostItem from "./PostItem";
 
@@ -9,7 +10,21 @@ import { FaArrowRight } from "react-icons/fa6";
 import { DUMMY } from "../constants";
 
 const Inspirations = () => {
-  const [posts, setPosts] = useState(DUMMY);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/posts`
+        );
+        setPosts(response?.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <section id="inspirations" className="inspirations-container">
@@ -30,17 +45,28 @@ const Inspirations = () => {
           {posts
             .slice(-3)
             .reverse()
-            .map(({ id, thumbnail, category, title, desc, authorID }) => (
-              <PostItem
-                key={id}
-                postID={id}
-                thumbnail={thumbnail}
-                category={category}
-                title={title}
-                description={desc}
-                authorID={authorID}
-              />
-            ))}
+            .map(
+              ({
+                _id,
+                thumbnail,
+                category,
+                title,
+                description,
+                author,
+                createdAt,
+              }) => (
+                <PostItem
+                  key={_id}
+                  postID={_id}
+                  thumbnail={thumbnail}
+                  category={category}
+                  title={title}
+                  description={description}
+                  authorID={author}
+                  createdAt={createdAt}
+                />
+              )
+            )}
         </div>
       ) : (
         <h2>No Inspirations Founds</h2>
