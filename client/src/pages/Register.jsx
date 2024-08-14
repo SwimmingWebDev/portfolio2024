@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
   const [userData, setUserData] = useState({
@@ -9,11 +10,24 @@ const Register = () => {
     confirmPW: "",
   });
 
+  const [error, setError] = useState("");
+  const navigate = useNavigate;
+
   const onChange = (e) => {
     setUserData({
       ...userData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const registerUser = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      const response = await axios.post(``);
+    } catch (error) {
+      setError(error.response.data.message);
+    }
   };
 
   return (
@@ -22,8 +36,8 @@ const Register = () => {
         <h1>Register</h1>
         <small>Admin Only</small>
       </div>
-      <form className="register-form">
-        <small className="error-message">This is an error messsage</small>
+      <form className="register-form" onSubmit={registerUser}>
+        {error && <small className="error-message">{error}</small>}
         <div className="input-box">
           <label>Username</label>
           <input

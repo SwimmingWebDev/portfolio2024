@@ -12,6 +12,10 @@ client/public/assets/videos/
 
 server/node_modules
 
+server/.env
+client/.env
+
+
 dist
 dist-ssr
 *.local

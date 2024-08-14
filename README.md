@@ -15,6 +15,7 @@ This is my portfolio for web development in 2024. I designed and built everythin
 
   - NodeJS
   - Express
+  - axios
   - MongoDB
   - PostMan
   - bcryptjs
