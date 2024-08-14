@@ -8,7 +8,7 @@ const Logout = () => {
   const { setCurrentUser } = useContext(userContext);
 
   setCurrentUser(null);
-  navigate(`/login`);
+  navigate(`/`);
 
   return <></>;
 };
