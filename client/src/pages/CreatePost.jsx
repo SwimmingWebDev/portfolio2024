@@ -1,18 +1,23 @@
 import React, { useState, useContext, useEffect } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+
+//Texteditor
+import SimpleMDE from "react-simplemde-editor";
+import "easymde/dist/easymde.min.css";
 
 import { userContext } from "../context/userProvider.jsx";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("Uncategorized");
+  const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
-  const [thumbnail, setThumbnail] = useState("");
+  const [thumbnail, setThumbnail] = useState(null);
 
   const { currentUser } = useContext(userContext);
   const token = currentUser?.token;
+
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   // redirect to login page for any user who isn't logged in
@@ -20,7 +25,7 @@ const CreatePost = () => {
     if (!token) {
       navigate("/");
     }
-  });
+  }, [token, navigate]);
 
   const modules = {
     toolbar: [
@@ -51,13 +56,53 @@ const CreatePost = () => {
     "image",
   ];
 
-  const categories = ["Web development", "Design", "Technology"];
+  const createPost = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    console.log("Selected Category:", category);
+
+    const postData = new FormData();
+    postData.set("title", title);
+    postData.set("category", category);
+    postData.set("description", description);
+    postData.set("thumbnail", thumbnail);
+
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/posts`,
+        postData,
+        { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
+      );
+      if (response.status == 201) {
+        return navigate("/");
+      }
+    } catch (err) {
+      if (err.response) {
+        // Server responded with a status other than 2xx
+        setError(
+          err.response?.data?.message ||
+            "Unable to post at the moment. Please try again later"
+        );
+      } else {
+        // Something else caused the error
+        setError("An error occurred. Please try again later.");
+      }
+    }
+  };
+
+  const categories = [
+    "Choose a Category",
+    "Web Development",
+    "Design",
+    "Technology",
+  ];
 
   return (
     <section className="createPost-container">
       <h1>Create Post</h1>
-      <form>
-        {/* {error && <small className="error-message">{error}</small>} */}
+      <form onSubmit={createPost}>
+        {error && <small className="error-message">{error}</small>}
         <div className="input-box">
           <input
             type="text"
@@ -65,10 +110,10 @@ const CreatePost = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="field"
-            autofocus
+            autoFocus
           />
         </div>
-        <div className="create-category">
+        <div className="create-category custom-select">
           <select
             name="category"
             value={category}
@@ -82,7 +127,7 @@ const CreatePost = () => {
 
         {/* https://www.npmjs.com/package/react-quill */}
 
-        <ReactQuill
+        <SimpleMDE
           modules={modules}
           formats={formats}
           value={description}
@@ -91,10 +136,10 @@ const CreatePost = () => {
         <input
           type="file"
           onChange={(e) => setThumbnail(e.target.files[0])}
-          accept="png, jpg, jpeg"
+          accept="image/png, image/jpeg"
         />
         <button type="submit" className="btn-primary">
-          Create
+          Create Post
         </button>
       </form>
     </section>

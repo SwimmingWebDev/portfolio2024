@@ -11,6 +11,7 @@ client/node_modules
 client/public/assets/videos/
 
 server/node_modules
+server/public/uploads
 
 server/.env
 client/.env

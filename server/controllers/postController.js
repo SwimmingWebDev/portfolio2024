@@ -28,7 +28,7 @@ const createPost = async (req, res, next) => {
       "." +
       splittedFilename[splittedFilename.length - 1];
     thumbnail.mv(
-      path.join(__dirname, "..", "/uploads", newFilename),
+      path.join(__dirname, "..", "public/uploads", newFilename),
       async (err) => {
         if (err) {
           return next(new HttpError("Failed to upload thumbnail.", 500));

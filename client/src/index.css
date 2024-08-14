@@ -60,6 +60,33 @@ section {
   margin: 2rem 0;
 }
 
+/* select menu */
+/* The container must be positioned relative: */
+.custom-select {
+  min-width: 350px;
+  position: relative;
+}
+
+.custom-select select {
+  font-size: 1.15rem;
+  padding: 0.675em;
+  background-color: var(--bg-color);
+  border: 2px solid var(--text-color);
+  border-radius: 0.25rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+input::file-selector-button {
+  font-size: 0.9rem;
+  background-color: var(--color-tertiary);
+  padding: 0.5em;
+  border: none;
+  border-radius: 0.25rem;
+  color: var(--bg-color);
+  cursor: pointer;
+}
+
 /* scroll bar */
 /* width */
 ::-webkit-scrollbar {
@@ -652,4 +679,22 @@ label {
     gap: 3rem;
     flex-direction: column;
   }
+}
+
+/* texteditor-simpleMDE */
+.CodeMirror {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.editor-toolbar {
+  background-color: white;
+}
+.CodeMirror-selectedtext {
+  color: var(--bg-color) !important;
+}
+
+.CodeMirror-selected {
+  background: var(--color-light) !important;
 }
