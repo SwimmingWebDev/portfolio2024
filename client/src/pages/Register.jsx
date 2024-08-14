@@ -7,26 +7,45 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
-    confirmPW: "",
+    confirmPassword: "",
   });
 
   const [error, setError] = useState("");
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const onChange = (e) => {
-    setUserData({
-      ...userData,
-      [e.target.name]: e.target.value,
+    setUserData((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
     });
   };
 
   const registerUser = async (e) => {
     e.preventDefault();
     setError("");
+
     try {
-      const response = await axios.post(``);
-    } catch (error) {
-      setError(error.response.data.message);
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/users/register`,
+        userData
+      );
+      // const response = await axios.post(
+      //   `${process.env.REACT_APP_BASE_URL}/users/register`,
+      //   userData
+      // );
+      const newUser = response.data;
+      console.log(newUser);
+      navigate("/");
+    } catch (err) {
+      if (err.response) {
+        // Server responded with a status other than 2xx
+        setError(
+          err.response?.data?.message ||
+            "Unable to register at the moment. Please try again later"
+        );
+      } else {
+        // Something else caused the error
+        setError("An error occurred. Please try again later.");
+      }
     }
   };
 
@@ -77,8 +96,8 @@ const Register = () => {
             type="password"
             className="field"
             placeholder="Confirm password"
-            name="confirmPW"
-            value={userData.confirmPW}
+            name="confirmPassword"
+            value={userData.confirmPassword}
             onChange={onChange}
           />
         </div>

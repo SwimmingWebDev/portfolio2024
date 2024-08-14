@@ -9,9 +9,16 @@ const postRoutes = require("./routes/postRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 const app = express();
-app.use(express.json({ extended: true }));
+const allowedOrigins = ["http://localhost:5173"];
+
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(
+  cors({
+    credentials: true,
+    origin: allowedOrigins,
+  })
+);
 app.use(
   fileUpload({
     createParentPath: true,
@@ -25,7 +32,9 @@ app.use(notFound);
 app.use(errorHandler);
 
 connect(process.env.MONGO_URI)
-  .then(app.listen(5000, () => console.log("Server is running")))
+  .then(
+    app.listen(process.env.PORT || 5000, () => console.log("Server is running"))
+  )
   .catch((error) => {
     console.log(error);
   });

@@ -52,7 +52,7 @@ export const footerLinks = [
   "Site Map",
 ];
 
-import PostImg from "../../public/assets/images/post-img.jpg";
+import PostImg from "/assets/images/post-img.jpg";
 
 export const DUMMY = [
   {
