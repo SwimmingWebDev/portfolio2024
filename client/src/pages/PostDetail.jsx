@@ -7,9 +7,6 @@ import { FiEdit } from "react-icons/fi";
 import { userContext } from "../context/userProvider";
 import DeletePost from "./DeletePost";
 
-//temp
-import PostImg from "../../public/assets/images/post-img.jpg";
-
 const PostDetail = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);

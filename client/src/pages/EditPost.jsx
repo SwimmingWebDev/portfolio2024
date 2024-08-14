@@ -129,7 +129,7 @@ const EditPost = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="field"
-            autofocus
+            autoFocus
           />
         </div>
         <div className="create-category custom-select">

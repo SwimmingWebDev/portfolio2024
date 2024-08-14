@@ -3,9 +3,6 @@ import PostItem from "../components/PostItem";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-//temp
-import { DUMMY } from "../constants";
-
 const CategoryPosts = () => {
   const [posts, setPosts] = useState([]);
   const { category } = useParams();

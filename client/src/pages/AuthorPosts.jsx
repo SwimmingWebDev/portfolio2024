@@ -1,19 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
 import PostItem from "../components/PostItem";
-import { RiKey2Line } from "react-icons/ri";
+import { userContext } from "../context/userProvider.jsx";
+import axios from "axios";
+
+//react-icons
 import { IoMdAdd } from "react-icons/io";
 import { HiLogin } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
-import { userContext } from "../context/userProvider.jsx";
-import axios from "axios";
-
-//temp
-import { DUMMY } from "../constants";
-
 const AuthorPosts = () => {
   const [posts, setPosts] = useState([]);
-  const [author, setAuthor] = useState({});
 
   const { currentUser } = useContext(userContext);
 
