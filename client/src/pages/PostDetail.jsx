@@ -1,58 +1,71 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 import { FiEdit } from "react-icons/fi";
-import { FiDelete } from "react-icons/fi";
+
+import { userContext } from "../context/userProvider";
+import DeletePost from "./DeletePost";
 
 //temp
-
 import PostImg from "../../public/assets/images/post-img.jpg";
 
 const PostDetail = () => {
+  const { id } = useParams();
+  const [post, setPost] = useState(null);
+
+  const { currentUser } = useContext(userContext);
+
+  useEffect(() => {
+    const getPost = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/posts/${id}`
+        );
+        setPost(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getPost();
+  }, []);
+
   return (
     <section className="post-detail-container">
       <h1>My Inspirations</h1>
-      <div className="post-detail-contents">
-        <div className="post-detail-header">
-          <Link
-            to={`/posts/categories/UX/UI Design`}
-            className="btn-post-category "
-          >
-            <small>UX/UI Design</small>
-          </Link>
-          <h2>This is the title!</h2>
-          <small>1 day ago</small>
+      {post && (
+        <div className="post-detail-contents">
+          <div className="post-detail-header">
+            <Link
+              to={`/posts/categories/UX/UI Design`}
+              className="btn-post-category "
+            >
+              <small>{post.category}</small>
+            </Link>
+            <h2>{post.title}</h2>
+            <small>{post.createdAt}</small>
+          </div>
+          {currentUser?.id == post?.author && (
+            <div className="post-detail-buttons">
+              <Link to={`/posts/${post?._id}/edit`}>
+                <FiEdit />
+              </Link>
+              <DeletePost postId={id} />
+            </div>
+          )}
+
+          <div className="post-detail-thumbnail">
+            <img
+              src={`${import.meta.env.VITE_ASSETS_URL}/uploads/${
+                post.thumbnail
+              }`}
+              alt={post.title}
+            />
+          </div>
+          {/* dangerouslySetInnerHTML : to render HTML directly */}
+          <p dangerouslySetInnerHTML={{ __html: post.description }}></p>
         </div>
-        <div className="post-detail-buttons">
-          <Link to={`/posts/admin/edit`}>
-            <FiEdit />
-          </Link>
-          <Link to={`/posts/admin/delete`}>
-            <FiDelete />
-          </Link>
-        </div>
-        <div className="post-detail-thumbnail">
-          <img src={PostImg} alt="" />
-        </div>
-        <p>
-          I needed to be able to toggle showing all rows in the grid with only
-          showing the first row. It's possible to achieve this by using a
-          combination of grid-template-rows and grid-auto-rows. Basically,
-          define the first row using grid-template-rows (or however many rows
-          you want to be visible) and set grid-auto-rows to be zero (this will
-          give all subsequent rows a height of zero). Also, ensure you remove
-          any padding, row gap, and set overflow to hidden.
-        </p>
-        <p>
-          I needed to be able to toggle showing all rows in the grid with only
-          showing the first row. It's possible to achieve this by using a
-          combination of grid-template-rows and grid-auto-rows. Basically,
-          define the first row using grid-template-rows (or however many rows
-          you want to be visible) and set grid-auto-rows to be zero (this will
-          give all subsequent rows a height of zero). Also, ensure you remove
-          any padding, row gap, and set overflow to hidden.
-        </p>
-      </div>
+      )}
     </section>
   );
 };

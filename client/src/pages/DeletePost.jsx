@@ -1,7 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 
 import { userContext } from "../context/userProvider.jsx";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { FiDelete } from "react-icons/fi";
 
 const DeletePost = () => {
   const { currentUser } = useContext(userContext);
@@ -13,9 +15,13 @@ const DeletePost = () => {
     if (!token) {
       navigate("/");
     }
-  });
+  }, []);
 
-  return <div>DeletePost</div>;
+  return (
+    <Link>
+      <FiDelete />
+    </Link>
+  );
 };
 
 export default DeletePost;
