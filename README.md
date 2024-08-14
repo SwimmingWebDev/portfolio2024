@@ -10,6 +10,7 @@ This is my portfolio for web development in 2024. I designed and built everythin
   - VITE
   - GSAP
   - Three.js
+  - SimpleMDE : text editor for React
 
 - Backend
 

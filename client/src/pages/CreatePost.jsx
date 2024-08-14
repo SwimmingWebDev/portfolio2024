@@ -60,8 +60,6 @@ const CreatePost = () => {
     e.preventDefault();
     setError("");
 
-    console.log("Selected Category:", category);
-
     const postData = new FormData();
     postData.set("title", title);
     postData.set("category", category);
@@ -124,8 +122,6 @@ const CreatePost = () => {
             ))}
           </select>
         </div>
-
-        {/* https://www.npmjs.com/package/react-quill */}
 
         <SimpleMDE
           modules={modules}

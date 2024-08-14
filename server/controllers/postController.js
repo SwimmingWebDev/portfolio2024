@@ -122,7 +122,7 @@ const editPost = async (req, res, next) => {
       } else {
         //delete old thumbnail
         fs.unlink(
-          path.join(__dirname, "..", "uploads", oldPost.thumbnail),
+          path.join(__dirname, "..", "public/uploads", oldPost.thumbnail),
           async (err) => {
             if (err) {
               return next(new HttpError(err));
@@ -145,7 +145,7 @@ const editPost = async (req, res, next) => {
           "." +
           splittedFilename[splittedFilename.length - 1];
         thumbnail.mv(
-          path.join(__dirname, "..", "/uploads", newFilename),
+          path.join(__dirname, "..", "public/uploads", newFilename),
           async (err) => {
             if (err) {
               return next(new HttpError("Failed to upload thumbnail.", 500));
@@ -179,7 +179,7 @@ const deletePost = async (req, res, next) => {
     const fileName = post?.thumbnail;
     if (req.user.id == post.author) {
       fs.unlink(
-        path.join(__dirname, "..", "uploads", fileName),
+        path.join(__dirname, "..", "public/uploads", fileName),
         async (err) => {
           if (err) {
             return next(new HttpError(err));
