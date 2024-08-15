@@ -2,22 +2,6 @@ import { workslides } from "../constants";
 import { useEffect, useRef, useState } from "react";
 
 const WorkCarousel = () => {
-  const videoRef = useRef([]);
-  const videoSpanRef = useRef([]);
-  const videoDivRef = useRef([]);
-
-  const [video, setVideo] = useState({
-    isEnd: false,
-    startPlay: false,
-    videoId: 0,
-    isLastVideo: false,
-    isPlaying: false,
-  });
-
-  const { isEnd, startPlay, videoId, isLastVideo, isPlaying } = video;
-
-  useEffect(() => {}, [videoId, startPlay]);
-
   return (
     <>
       <div className="work-carousel">
@@ -25,12 +9,14 @@ const WorkCarousel = () => {
           <div key={contents.id} id="slider">
             <div className="work-carousel-container">
               <div className="work-carousel-box">
-                <video id="video" playsInline={true} preload="auto" muted>
-                  <source src={contents.video} type="video/mp4" />
-                </video>
+                <img
+                  src={contents.thumbnail}
+                  alt={contents.title}
+                  id="work-thumbnail"
+                />
               </div>
               <div className="demo-text">
-                {contents.textLists.map((text) => (
+                {contents.tech.map((text) => (
                   <p key={text} className="text">
                     {text}
                   </p>

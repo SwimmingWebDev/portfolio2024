@@ -2,17 +2,18 @@
 
 This is my portfolio for web development in 2024. I designed and built everything in the projects in my portfolio, but I received a lot of help from various websites. Below are the tools, videos, and articles that I used for assistance to build websites in my portfolio.
 
-### Languages, Frameworks, and Tools
+### Languages, Frameworks, and Libraries
 
-- FrontEnd
+- **FrontEnd**
 
   - javascript
   - VITE
   - GSAP
   - Three.js
   - SimpleMDE : text editor for React
+  - [Lenis](https://github.com/darkroomengineering/lenis/blob/main/packages/react/README.md) : smooth scrolling
 
-- Backend
+- **Backend**
 
   - NodeJS
   - Express
@@ -30,10 +31,6 @@ This is my portfolio for web development in 2024. I designed and built everythin
 - [CRUD](https://youtu.be/e_lJYRaMo60?si=ArTeDe4SHFpAlxYb)
 
 - [Contact Form](https://youtu.be/94_6JPDi13g?si=StKpavR0EkWnqQcg)
-
-### Webpack
-
-- [ReactQuill](https://www.npmjs.com/package/react-quill)
 
 ### Articles
 

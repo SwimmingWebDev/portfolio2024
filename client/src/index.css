@@ -390,12 +390,17 @@ label {
   overflow: hidden;
   display: flex;
   margin-right: 14px;
-  border-radius: 1em;
+
   height: 19em;
-  background-color: var(--color-dark);
+  border: 2px solid var(--text-color);
+  /* background-color: var(--color-dark); */
 }
 
 .demo-text {
+  background-color: #000000de;
+  border-radius: 1em;
+  padding: 1rem;
+  font-family: var(--font-primary);
   position: absolute;
   top: 15px;
   left: 20px;

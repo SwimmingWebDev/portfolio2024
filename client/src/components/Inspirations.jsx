@@ -6,9 +6,6 @@ import PostItem from "./PostItem";
 
 import { FaArrowRight } from "react-icons/fa6";
 
-//temp
-import { DUMMY } from "../constants";
-
 const Inspirations = () => {
   const [posts, setPosts] = useState([]);
 
