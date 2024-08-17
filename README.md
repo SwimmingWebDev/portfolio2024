@@ -12,6 +12,7 @@ This is my portfolio for web development in 2024. I designed and built everythin
   - Three.js
   - SimpleMDE : text editor for React
   - [Lenis](https://github.com/darkroomengineering/lenis/blob/main/packages/react/README.md) : smooth scrolling
+  - [SplitType](https://www.npmjs.com/package/split-type) : splits HTML text
 
 - **Backend**
 

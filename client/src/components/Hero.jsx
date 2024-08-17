@@ -1,20 +1,23 @@
 import { useRef, useState } from "react";
 
 // icons
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowDown } from "react-icons/fa6";
 import { TextPlugin } from "gsap/TextPlugin";
-
-// assets
-import { bannerVideo } from "../utils";
+import { FaReact } from "react-icons/fa";
+import { FaNodeJs } from "react-icons/fa";
+import { FaJs } from "react-icons/fa";
+import { FaPython } from "react-icons/fa6";
+import { FaFigma } from "react-icons/fa";
 
 // GSAP
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
+import Spline from "@splinetool/react-spline";
+
 gsap.registerPlugin(TextPlugin);
 
 const Hero = () => {
-  const [videoSrc, setVideoSrc] = useState(bannerVideo);
   const tl = useRef();
 
   useGSAP(() => {
@@ -27,7 +30,7 @@ const Hero = () => {
       .to(".btn-circle", {
         width: "150%",
         height: "150%",
-        duration: 1,
+        duration: 0.5,
         ease: "bounceIn",
       })
       .to(
@@ -36,7 +39,7 @@ const Hero = () => {
           color: "#000000",
           ease: "none",
         },
-        "-=1"
+        "-=0.5"
       )
       .to(
         ".btn-arrow-myportfolio",
@@ -44,41 +47,33 @@ const Hero = () => {
           color: "#000000",
           ease: "none",
         },
-        "-=1"
+        "-=0.5"
       );
     // text animation
-    gsap.set(".hero-title-hello", { opacity: 0, y: 20 });
-    gsap.to(".hero-title-hello", {
-      opacity: 1,
-      y: 0,
-      stagger: 0.08,
-      delay: 0.1,
-      duration: 0.3,
-      ease: "power1.inout",
-    });
-
-    gsap.set("#hero-title", { opacity: 0 });
-    gsap.to("#hero-title", { opacity: 1, stagger: 0.1, delay: 0.6 });
   }, []);
 
   return (
     <section className="hero-container">
-      <div className="video-container">
-        <video autoPlay muted playsInline={true} key={videoSrc}>
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+      <div className="spline-embed">
+        <Spline scene="https://prod.spline.design/CLDVARrcuCPRQaED/scene.splinecode" />
       </div>
       <div className="banner">
-        <p>
-          <span className="hero-title-hello">H</span>
-          <span className="hero-title-hello">e</span>
-          <span className="hero-title-hello">l</span>
-          <span className="hero-title-hello">l</span>
-          <span className="hero-title-hello">o</span>
-          <span id="hero-title"> I'm</span>
-          <span id="hero-title"> Yang</span> - a passionate designer & developer
-          based in Vancouver, Canada
-        </p>
+        <div className="banner-contents">
+          <h1>
+            <span className="hero-title-hello">Hello, I'm Yang.</span>
+          </h1>
+          <p>
+            Focus on creating digital experiences - Web Development &
+            Interactive Design
+          </p>
+        </div>
+        {/* <div className="hero-tech-icons">
+          <FaPython />
+          <FaJs />
+          <FaReact />
+          <FaNodeJs />
+          <FaFigma />
+        </div> */}
         <a href="#work">
           <button
             className="btn-work"
@@ -88,7 +83,7 @@ const Hero = () => {
           >
             <span className="btn-txt-myportfolio">My Portfolio</span>
             <div className="btn-circle"></div>
-            <FaArrowRight className="btn-arrow-myportfolio" />
+            <FaArrowDown className="btn-arrow-myportfolio" />
           </button>
         </a>
       </div>

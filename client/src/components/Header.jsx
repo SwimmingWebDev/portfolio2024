@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { logoImg } from "../utils";
 
 //icons
 import { RiHomeLine } from "react-icons/ri";
